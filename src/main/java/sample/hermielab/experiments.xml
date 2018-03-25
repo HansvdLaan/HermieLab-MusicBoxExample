@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<experiments>
+  <experiment>
+    <id>experiment1</id>
+    <automaton>MealyMachine</automaton>
+    <membershiporacle>TBA</membershiporacle>
+    <equivilanceoracle>TBA</equivilanceoracle>
+    <alphabet>
+      <ai>PushRhythm</ai>
+      <ai>PushSong</ai>
+      <ai>PushQuit</ai>
+    </alphabet>
+  </experiment>
+</experiments>
