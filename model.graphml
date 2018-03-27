@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	   http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+	<key id="attr0000" for="node" attr.name="shape" attr.type="string"/>
+	<key id="attr0001" for="node" attr.name="label" attr.type="string"/>
+	<key id="attr0002" for="edge" attr.name="label" attr.type="string"/>
+	<graph id="g" edgedefault="undirected">
+		<node id="__start0">
+			<data key="attr0000">none</data>
+			<data key="attr0001"></data>
+		</node>
+		<node id="s0">
+			<data key="attr0000">circle</data>
+			<data key="attr0001">0</data>
+		</node>
+		<node id="s1">
+			<data key="attr0000">circle</data>
+			<data key="attr0001">1</data>
+		</node>
+		<node id="s2">
+			<data key="attr0000">circle</data>
+			<data key="attr0001">2</data>
+		</node>
+		<node id="s3">
+			<data key="attr0000">circle</data>
+			<data key="attr0001">3</data>
+		</node>
+		<edge id="(s0;s1)" source="s0" target="s1" directed="true">
+			<data key="attr0002">PushRhythm / STARTRHYTHM</data>
+		</edge>
+		<edge id="(s0;s2)" source="s0" target="s2" directed="true">
+			<data key="attr0002">PushSong / STARTSONG</data>
+		</edge>
+		<edge id="(s0;s0)" source="s0" target="s0" directed="true">
+			<data key="attr0002">PushQuit / NONE</data>
+		</edge>
+		<edge id="(s1;s1)" source="s1" target="s1" directed="true">
+			<data key="attr0002">PushRhythm / NONE</data>
+		</edge>
+		<edge id="(s1;s3)" source="s1" target="s3" directed="true">
+			<data key="attr0002">PushSong / STARTSONG</data>
+		</edge>
+		<edge id="(s1;s0)" source="s1" target="s0" directed="true">
+			<data key="attr0002">PushQuit / QUIT</data>
+		</edge>
+		<edge id="(s2;s3)" source="s2" target="s3" directed="true">
+			<data key="attr0002">PushRhythm / STARTRHYTHM</data>
+		</edge>
+		<edge id="(s2;s2)" source="s2" target="s2" directed="true">
+			<data key="attr0002">PushSong / NONE</data>
+		</edge>
+		<edge id="(s2;s0)" source="s2" target="s0" directed="true">
+			<data key="attr0002">PushQuit / QUIT</data>
+		</edge>
+		<edge id="(s3;s3)" source="s3" target="s3" directed="true">
+			<data key="attr0002">PushRhythm / NONE</data>
+		</edge>
+	</graph>
+</graphml>
