@@ -17,7 +17,7 @@ import sample.MusicBoxOutput;
 public class ApplicationAdapter extends Adapter {
 	private InstanceManager instance;
 
-	ApplicationAdapter(InstanceManager instanceManager) {
+	public ApplicationAdapter(InstanceManager instanceManager) {
 		this.instance = instanceManager;
 	}
 

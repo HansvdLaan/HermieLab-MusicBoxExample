@@ -89,8 +89,8 @@ public class Controller {
                 output.set(MusicBoxOutput.NONE);
                 break;
             case SONG:
-                state.set(MusicBoxState.ERROR);
-                output.set(MusicBoxOutput.ERROR);
+                state.set(MusicBoxState.BOTH);
+                output.set(MusicBoxOutput.STARTRHYTHM);
                 break;
             case BOTH:
                 output.set(MusicBoxOutput.NONE);
