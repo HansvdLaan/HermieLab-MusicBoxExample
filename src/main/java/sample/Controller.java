@@ -2,6 +2,7 @@ package sample;
 
 import annotations.abstraction.FunctionSymbol;
 import annotations.concrete.OutputFunction;
+import annotations.setup.PostQuery;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -75,8 +76,6 @@ public class Controller {
         });
         state.set(MusicBoxState.OFF);
         output.set(MusicBoxOutput.NONE);
-
-
     }
 
     @FunctionSymbol(inputSymbolID = "PushRhythm", inputFunctionID = "rhythmPushed", outputFunctionID = "output")
@@ -90,8 +89,8 @@ public class Controller {
                 output.set(MusicBoxOutput.NONE);
                 break;
             case SONG:
-                state.set(MusicBoxState.BOTH);
-                output.set(MusicBoxOutput.STARTRHYTHM);
+                state.set(MusicBoxState.ERROR);
+                output.set(MusicBoxOutput.ERROR);
                 break;
             case BOTH:
                 output.set(MusicBoxOutput.NONE);
@@ -152,5 +151,15 @@ public class Controller {
     @OutputFunction(id="output")
     public String getOutput(){
         return output.getValue().toString();
+    }
+
+    public String getState() {
+        return state.getValue().toString();
+    }
+
+    @PostQuery(order = 0)
+    public void reset(){
+        state.set(MusicBoxState.OFF);
+        output.set(MusicBoxOutput.NONE);
     }
 }

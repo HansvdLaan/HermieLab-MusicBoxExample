@@ -24,8 +24,8 @@ public class HermieLabDemo extends Application {
                 Paths.get("src","main","java","sample","hermielab"),
                 "experiment1",
         1,
-        15,
-        1000,
+        10,
+        10000,
         new Random(42));
         setup.initializeOracles();
         setup.executeExperiment();

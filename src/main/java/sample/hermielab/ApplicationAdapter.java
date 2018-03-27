@@ -102,7 +102,7 @@ public class ApplicationAdapter extends Adapter {
 
 	@Override
 	public void postQuery() {
-		this.pushQuit();
+		((Controller) instance.getClassInstance(Controller.class)).reset();
 	}
 
 	@Override
