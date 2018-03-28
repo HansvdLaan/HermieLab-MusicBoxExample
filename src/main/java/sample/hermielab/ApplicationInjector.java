@@ -25,11 +25,12 @@ public class ApplicationInjector {
 	public void inject() throws NotFoundException, CannotCompileException {
 		ClassPool pool = ClassPool.getDefault();
 		for(String clazz: observedClasses) {
-			CtClass ctClass = pool.get(clazz);
-			for(CtConstructor constructor: ctClass.getConstructors()) {
-				constructor.insertAfter("{instancemanager.InstanceManager.getInstance().addClassInstance($0);}");
-			}
-			ctClass.toClass();
+//			pool.importPackage("sample");
+//			CtClass ctClass = pool.get(clazz);
+//			for(CtConstructor constructor: ctClass.getConstructors()) {
+//				constructor.insertAfter("{instancemanager.InstanceManager.getInstance().addClassInstance($0);}");
+//			}
+//			ctClass.toClass();
 		}
 	}
 }

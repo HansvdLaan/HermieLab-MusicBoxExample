@@ -3,6 +3,7 @@ package sample;
 import annotations.abstraction.FunctionSymbol;
 import annotations.concrete.OutputFunction;
 import annotations.setup.PostQuery;
+import instancemanager.InstanceManager;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -29,6 +30,8 @@ public class Controller {
 
     @FXML
     public void initialize() {
+
+        InstanceManager.getInstance().addClassInstance(this);
 
         state = new SimpleObjectProperty<MusicBoxState>();
         output = new SimpleObjectProperty<MusicBoxOutput>();

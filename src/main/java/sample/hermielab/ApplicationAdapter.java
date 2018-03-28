@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import org.graphwalker.core.statistics.Execution;
 import sample.Controller;
 import sample.Main;
 import sample.MusicBoxOutput;
@@ -19,6 +20,7 @@ public class ApplicationAdapter extends Adapter {
 
 	public ApplicationAdapter(InstanceManager instanceManager) {
 		this.instance = instanceManager;
+
 	}
 
 	@Override
@@ -76,13 +78,26 @@ public class ApplicationAdapter extends Adapter {
 
 	@Override
 	public void start() {
-		new Main();
+		System.out.println("[DEBUG] Starting Adapter");
 		this.start0();
 	}
 
 	public void start0() {
 		try {
-			((Main) instance.getClassInstance(Main.class)).start(new Stage());
+			new Thread(() -> {
+					try {
+						System.out.println("[DEBUG] Launching Main");
+						Main.launch(Main.class);
+					} catch (Exception e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+					}
+			}
+			).start();
+			Thread.sleep(2000);
+
+			System.out.println("[DEBUG] Main was created:" + (InstanceManager.getInstance().getClassInstance(Main.class) != null));
+			System.out.println("[DEBUG] Controller was created:" + (InstanceManager.getInstance().getClassInstance(Controller.class) != null));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
