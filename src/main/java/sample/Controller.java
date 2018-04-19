@@ -1,9 +1,5 @@
 package sample;
 
-import annotations.abstraction.FunctionSymbol;
-import annotations.concrete.OutputFunction;
-import annotations.setup.PostQuery;
-import instancemanager.InstanceManager;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -30,8 +26,6 @@ public class Controller {
 
     @FXML
     public void initialize() {
-
-        InstanceManager.getInstance().addClassInstance(this);
 
         state = new SimpleObjectProperty<MusicBoxState>();
         output = new SimpleObjectProperty<MusicBoxOutput>();
@@ -81,7 +75,6 @@ public class Controller {
         output.set(MusicBoxOutput.NONE);
     }
 
-    @FunctionSymbol(inputSymbolID = "PushRhythm", inputFunctionID = "rhythmPushed", outputFunctionID = "output")
     public void rhythmPushed(ActionEvent actionEvent) {
         switch (state.getValue()){
             case OFF:
@@ -104,7 +97,6 @@ public class Controller {
         }
     }
 
-    @FunctionSymbol(inputSymbolID = "PushSong", inputFunctionID = "songPushed", outputFunctionID = "output")
     public void songPushed(ActionEvent actionEvent) {
         switch (state.getValue()){
             case OFF:
@@ -127,7 +119,6 @@ public class Controller {
         }
     }
 
-    @FunctionSymbol(inputSymbolID = "PushQuit", inputFunctionID = "quitPushed", outputFunctionID = "output")
     public void quitPushed(ActionEvent actionEvent) {
         switch (state.getValue()){
             case OFF:
@@ -151,7 +142,6 @@ public class Controller {
         }
     }
 
-    @OutputFunction(id="output")
     public String getOutput(){
         return output.getValue().toString();
     }
@@ -160,7 +150,6 @@ public class Controller {
         return state.getValue().toString();
     }
 
-    @PostQuery(order = 0)
     public void reset(){
         state.set(MusicBoxState.OFF);
         output.set(MusicBoxOutput.NONE);
