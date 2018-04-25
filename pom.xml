@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>MusicBoxExample</artifactId>
+    <artifactId>TTMusicPlayerDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -25,6 +25,10 @@
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
                     <showWarnings>true</showWarnings>
+                    <annotationProcessors>
+                        <!--<annotationProcessor>hermielab.processor.AnnotationsProcessor</annotationProcessor>-->
+                        <annotationProcessor>hermielab.processor.BasicLearningSetupProcessor</annotationProcessor>
+                    </annotationProcessors>
                 </configuration>
 
             </plugin>
@@ -39,7 +43,157 @@
         </plugins>
     </build>
 
+    <dependencyManagement>
+        <dependencies>
+            <!--
+                Import all dependencies declared by LearnLib. This also
+                imports all automatalib dependencies in a matching
+                version.
+            -->
+            <dependency>
+                <groupId>de.learnlib</groupId>
+                <artifactId>learnlib-parent</artifactId>
+                <version>0.12.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+
+        <dependency>
+            <groupId>hansvdlaan.hermielab</groupId>
+            <artifactId>annotations</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>hansvdlaan.hermielab</groupId>
+            <artifactId>processor</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- For the annotatation unit testing -->
+        <dependency>
+            <groupId>com.google.testing.compile</groupId>
+            <artifactId>compile-testing</artifactId>
+            <version>0.13</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Basic LearnLib functionalities -->
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-counterexamples</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-basic-eqtests</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-simulator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-drivers-basic</artifactId>
+        </dependency>
+
+        <!-- A cache filter eliminates duplicate queries -->
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-cache</artifactId>
+        </dependency>
+
+        <!-- Dependencies for commonly used learning algorithms -->
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-lstar-generic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-ttt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-dhc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-discrimination-tree</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.learnlib</groupId>
+            <artifactId>learnlib-kearns-vazirani</artifactId>
+        </dependency>
+
+        <!-- Example automata that ship with LearnLib -->
+        <dependency>
+            <groupId>de.learnlib.testsupport</groupId>
+            <artifactId>learnlib-learning-examples</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- For visualization purposes -->
+        <dependency>
+            <groupId>net.automatalib</groupId>
+            <artifactId>automata-commons-dotutil</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.automatalib</groupId>
+            <artifactId>automata-jung-visualizer</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.graphstream</groupId>
+            <artifactId>gs-core</artifactId>
+            <version>1.3.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/gs-core-1.3.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>Jflap</groupId>
+            <artifactId>Jflap</artifactId>
+            <version>1.7.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/jflaplib-cli-1.3-bundle.jar</systemPath>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
 
     </dependencies>
 </project>
