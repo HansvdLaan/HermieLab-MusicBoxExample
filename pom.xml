@@ -25,17 +25,16 @@
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
                     <showWarnings>true</showWarnings>
-                    <annotationProcessors>
+                    <!--<annotationProcessors>-->
                         <!--<annotationProcessor>hermielab.processor.AnnotationsProcessor</annotationProcessor>-->
-                        <annotationProcessor>hermielab.processor.BasicLearningSetupProcessor</annotationProcessor>
-                    </annotationProcessors>
+                        <!--<annotationProcessor>hermielab.processor.BasicLearningSetupProcessor</annotationProcessor>-->
+                    <!--</annotationProcessors>-->
                 </configuration>
-
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.6.2</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
